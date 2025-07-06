@@ -82,8 +82,8 @@
     home.file = {
       ".config/nvim" = {
         source = builtins.path {
-          path = ../../dotfiles/nvim-config;
-          name = "nvim-config";
+          path = ../../dotfiles/nvim;
+          name = "nvim";
         };
         recursive = true;
       };
