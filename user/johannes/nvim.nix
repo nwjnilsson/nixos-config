@@ -1,47 +1,27 @@
-{ config, pkgs, ...}:
-
 {
-  imports =
-    [
-      <home-manager/nixos>
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    <home-manager/nixos>
+  ];
 
   home-manager.users.johannes = {pkgs, ...}: {
-    home.stateVersion = "25.05";
+    home.packages = with pkgs; [
+      direnv
+    ];
     programs = {
-      wezterm = {
-        enable = true;
-        enableZshIntegration = true;
-      };
-      git = {
-        enable = true;
-        extraConfig = {
-          init = { defaultBranch = "main"; };
-          pull = { rebase = true; };
-        };
-      };
-      thefuck.enable = true;
-      fzf.enable = true;
-      zsh = {
-        enable = true;
-        oh-my-zsh = {
-          enable = true;
-          plugins = [ "git" "thefuck" "z" "fzf" ];
-          theme = "robbyrussell";
-        };
-        initContent = ''
-          eval "$(direnv hook zsh)"
-        '';
-      };
       neovim = {
         enable = true;
-        viAlias = true;
         vimAlias = true;
+        viAlias = true;
         extraPackages = with pkgs; [
+          # Packages always available in neovim. Other language servers are made
+          # available through shell.nix files on a per-project basis.
           lua
           lua-language-server
-          nil
-          yaml-language-server
+          bash-language-server
         ];
         #extraLuaPackages = ps: [
         #  ps.xxx
@@ -64,17 +44,16 @@
           luasnip
           mason-lspconfig-nvim
           # -----------
-          vim-nix
-          (nvim-treesitter.withPlugins(p: [
+          (nvim-treesitter.withPlugins (p: [
+            p.tree-sitter-c
+            p.tree-sitter-cpp
+            p.tree-sitter-glsl
             p.tree-sitter-nix
             p.tree-sitter-bash
             p.tree-sitter-lua
             p.tree-sitter-vimdoc
             p.tree-sitter-python
             p.tree-sitter-json
-            p.tree-sitter-c
-            p.tree-sitter-cpp
-            p.tree-sitter-glsl
           ]))
         ];
       };
@@ -88,17 +67,5 @@
         recursive = true;
       };
     };
-    home.file = {
-      ".config/wezterm" = {
-        source = builtins.path {
-          path = ../../dotfiles/wezterm;
-          name = "wezterm";
-        };
-        recursive = true;
-      };
-    };
-    home.packages = with pkgs; [
-      direnv
-    ];
   };
 }
