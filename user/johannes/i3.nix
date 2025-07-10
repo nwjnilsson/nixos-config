@@ -24,8 +24,8 @@
           i3status
           pamixer # control audio
           nitrogen # backgrounds for X
-          # i3blocks
           # dex
+          # i3blocks
           # xss-lock
         ];
       };
@@ -51,7 +51,7 @@
   }: {
     xsession.windowManager.i3 = {
       enable = true;
-      extraConfig = "";
+      extraConfig = ""; # TODO: move config here
     };
     gtk = {
       enable = true;
