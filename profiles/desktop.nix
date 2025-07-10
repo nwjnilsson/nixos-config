@@ -18,5 +18,6 @@
     ripgrep
     librewolf
     brave
+    spotify
   ];
 }
