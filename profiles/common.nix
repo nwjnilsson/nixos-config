@@ -3,10 +3,9 @@
   pkgs,
   ...
 }: {
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
+  imports = [
+  ];
+
   programs.git.enable = true;
 
   environment.systemPackages = with pkgs; [

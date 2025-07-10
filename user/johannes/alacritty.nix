@@ -15,7 +15,7 @@
         theme = "tokyo_night";
         settings = {
           window = {
-            opacity = 0.95;
+            opacity = 0.9;
             dimensions = {
               lines = 28;
               columns = 120;

@@ -7,19 +7,25 @@
     <home-manager/nixos>
   ];
 
-  home-manager.users.johannes = {pkgs, ...}: {
+  home-manager.users.johannes = {
+    pkgs,
+    config,
+    ...
+  }: {
     home.packages = with pkgs; [
       direnv
     ];
     programs = {
       neovim = {
         enable = true;
+        defaultEditor = true;
         vimAlias = true;
         viAlias = true;
         extraPackages = with pkgs; [
           # Packages always available in neovim. Other language servers are made
           # available through shell.nix files on a per-project basis.
           lua
+          lua51Packages.luarocks
           lua-language-server
           bash-language-server
         ];
@@ -36,6 +42,7 @@
           undotree
           vim-abolish
           vim-surround
+          markview-nvim
           # lsp --------
           lsp-zero-nvim
           nvim-lspconfig
@@ -59,7 +66,7 @@
       };
     };
     home.file = {
-      ".config/nvim" = {
+      "${config.xdg.configHome}/nvim" = {
         source = builtins.path {
           path = ../../dotfiles/nvim;
           name = "nvim";
