@@ -61,6 +61,10 @@
             p.tree-sitter-vimdoc
             p.tree-sitter-python
             p.tree-sitter-json
+            p.tree-sitter-markdown
+            p.tree-sitter-markdown_inline
+            p.tree-sitter-yaml
+            p.tree-sitter-latex
           ]))
         ];
       };

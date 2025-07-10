@@ -8,8 +8,12 @@
     ./picom.nix
   ];
 
+  # Use xfce lock
+  programs.i3lock.enable = false;
+
   services = {
     xserver = {
+      enable = true;
       excludePackages = [
         pkgs.xterm
       ];
@@ -21,6 +25,8 @@
           pamixer # control audio
           nitrogen # backgrounds for X
           # i3blocks
+          # dex
+          # xss-lock
         ];
       };
       desktopManager = {
@@ -35,12 +41,6 @@
     displayManager = {
       defaultSession = "xfce+i3";
     };
-  };
-
-  security.pam.services = {
-    i3lock.enable = true;
-    i3lock-color.enable = true;
-    xlock.enable = true;
     xscreensaver.enable = true;
   };
 
@@ -51,7 +51,7 @@
   }: {
     xsession.windowManager.i3 = {
       enable = true;
-      # extraConfig =
+      extraConfig = "";
     };
     gtk = {
       enable = true;
