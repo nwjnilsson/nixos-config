@@ -16,6 +16,7 @@ in {
       opacity-rule = [
         "99:fullscreen"
         "95:class_g = 'Alacritty' && focused"
+        "85:class_g = 'Alacritty' && class_i = 'HtopTerm' && !focused"
         "65:class_g = 'Alacritty' && !focused"
       ];
       inactive-opacity = 1.0;
@@ -28,7 +29,7 @@ in {
         if isGlx
         then {
           method = "gaussian";
-          size = 7;
+          size = 5;
           deviation = 5.0;
         }
         else {};

@@ -12,9 +12,6 @@
     config,
     ...
   }: {
-    home.packages = with pkgs; [
-      direnv
-    ];
     programs = {
       neovim = {
         enable = true;
@@ -23,11 +20,16 @@
         viAlias = true;
         extraPackages = with pkgs; [
           # Packages always available in neovim. Other language servers are made
-          # available through shell.nix files on a per-project basis.
+          # available through shell.nix files on a per-project basis (python is
+          # a good example)
           lua
           lua51Packages.luarocks
           lua-language-server
           bash-language-server
+          yaml-language-server
+          nil
+          alejandra
+          clang-tools
         ];
         #extraLuaPackages = ps: [
         #  ps.xxx
@@ -43,18 +45,24 @@
           vim-abolish
           vim-surround
           markview-nvim
+          nvim-dap
+          nvim-dap-virtual-text
           # lsp --------
           lsp-zero-nvim
           nvim-lspconfig
           nvim-cmp
           cmp-nvim-lsp
           luasnip
+          # Not actually using mason in NixOS but keeping
+          # it lets me have the neovim config regardless of OS
+          mason-nvim
           mason-lspconfig-nvim
           # -----------
           (nvim-treesitter.withPlugins (p: [
             p.tree-sitter-c
             p.tree-sitter-cpp
             p.tree-sitter-glsl
+            # p.tree-sitter-slang
             p.tree-sitter-nix
             p.tree-sitter-bash
             p.tree-sitter-lua

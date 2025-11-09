@@ -26,7 +26,7 @@
   networking.hostName = "Neptune";
   # Uncomment to enable prettyfication of windows (more GPU intense,
   # not for things like Raspberry Pi)
-  # home-manager.users.johannes.services.picom.backend = "glx";
+  home-manager.users.johannes.services.picom.backend = "glx";
 
   hardware.graphics = {
     enable = true;
