@@ -14,7 +14,7 @@
   users.users.johannes = {
     isNormalUser = true;
     description = "Johannes";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "dialout"];
     shell = pkgs.zsh;
     # packages = with pkgs; [
     # ];

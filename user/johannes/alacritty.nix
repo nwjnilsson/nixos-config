@@ -22,7 +22,7 @@
             };
           };
           font = {
-            size = 18;
+            size = 16;
             normal = {
               family = "CodeNewRoman Nerd Font Mono";
               style = "Regular";

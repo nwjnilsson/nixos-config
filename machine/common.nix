@@ -54,9 +54,6 @@
     #media-session.enable = true;
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # Install fonts
   fonts.packages = with pkgs; [
     nerd-fonts.code-new-roman

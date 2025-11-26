@@ -7,6 +7,7 @@
     /etc/nixos/hardware-configuration.nix
     ../common.nix
     ../../user/johannes/default.nix
+    ../../user/johannes/3d_printing_tools.nix
     ../../profiles/x11.nix # whenever i3 is used
     ../../profiles/desktop.nix
     ../../profiles/devtools.nix

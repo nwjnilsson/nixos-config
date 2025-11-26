@@ -8,7 +8,7 @@
   ];
 
   # For prusa slicer
-  services.flatpak.enable = true;
+  # services.flatpak.enable = true;
 
   home-manager.users.johannes = {
     pkgs,
@@ -17,6 +17,7 @@
   }: {
     home.packages = with pkgs; [
       freecad
+      prusa-slicer
     ];
   };
 }
