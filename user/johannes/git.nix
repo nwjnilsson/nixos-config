@@ -11,11 +11,13 @@
     programs = {
       git = {
         enable = true;
-        userName = "Johannes Nilsson";
-        userEmail = "nwj@themirelab.com";
-        extraConfig = {
-          init = { defaultBranch = "main"; };
-          pull = { rebase = true; };
+        settings = {
+          init = {defaultBranch = "main";};
+          pull = {rebase = true;};
+          user = {
+            name = "Johannes Nilsson";
+            email = "nwj@themirelab.com";
+          };
         };
       };
     };

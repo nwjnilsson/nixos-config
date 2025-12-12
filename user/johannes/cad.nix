@@ -17,6 +17,7 @@
   }: {
     home.packages = with pkgs; [
       freecad
+      librecad
       prusa-slicer
     ];
   };

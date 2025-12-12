@@ -53,10 +53,9 @@
           nvim-cmp
           cmp-nvim-lsp
           luasnip
-          # Not actually using mason in NixOS but keeping
-          # it lets me have the neovim config regardless of OS
           mason-nvim
           mason-lspconfig-nvim
+          claude-code-nvim
           # -----------
           (nvim-treesitter.withPlugins (p: [
             p.tree-sitter-c
