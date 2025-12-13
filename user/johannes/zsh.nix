@@ -10,6 +10,7 @@
   home-manager.users.johannes = {pkgs, ...}: {
     home.stateVersion = "25.05";
     programs = {
+      nix-index.enable = true;
       pay-respects = {
         enable = true;
         enableZshIntegration = true;

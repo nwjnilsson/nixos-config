@@ -45,8 +45,6 @@
           vim-abolish
           vim-surround
           markview-nvim
-          nvim-dap
-          nvim-dap-virtual-text
           # lsp --------
           lsp-zero-nvim
           nvim-lspconfig
@@ -55,7 +53,6 @@
           luasnip
           mason-nvim
           mason-lspconfig-nvim
-          claude-code-nvim
           # -----------
           (nvim-treesitter.withPlugins (p: [
             p.tree-sitter-c

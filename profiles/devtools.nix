@@ -14,5 +14,6 @@
     platformio
     saleae-logic-2
     gdb
+    gdbgui
   ];
 }
