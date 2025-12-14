@@ -8,7 +8,6 @@
     ./picom.nix
   ];
 
-  # Use xfce lock
   programs.i3lock.enable = false;
 
   services = {
@@ -26,7 +25,7 @@
           nitrogen # backgrounds for X
           # dex
           # i3blocks
-          # xss-lock
+          xss-lock
         ];
       };
       desktopManager = {
@@ -35,13 +34,14 @@
           enable = true;
           noDesktop = true;
           enableXfwm = false;
+          enableScreensaver = true;
         };
       };
     };
     displayManager = {
       defaultSession = "xfce+i3";
     };
-    xscreensaver.enable = true;
+    xscreensaver.enable = false; # systemd wrapper version not needed
   };
 
   home-manager.users.johannes = {
