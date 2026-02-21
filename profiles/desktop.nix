@@ -18,5 +18,7 @@
     librewolf
     brave
     spotify
+    gimp-with-plugins
+    inkscape-with-extensions
   ];
 }

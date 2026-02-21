@@ -2,7 +2,13 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  # nixos-unstable
+  pkgsUnstable = import <nixos-unstable> {
+    system = pkgs.stdenv.hostPlatform.system;
+    config = pkgs.config;
+  };
+in {
   imports = [
     <home-manager/nixos>
   ];
@@ -18,10 +24,8 @@
         defaultEditor = true;
         vimAlias = true;
         viAlias = true;
+
         extraPackages = with pkgs; [
-          # Packages always available in neovim. Other language servers are made
-          # available through shell.nix files on a per-project basis (python is
-          # a good example)
           lua
           lua51Packages.luarocks
           lua-language-server
@@ -31,34 +35,12 @@
           alejandra
           clang-tools
         ];
-        #extraLuaPackages = ps: [
-        #  ps.xxx
-        #];
+
         plugins = with pkgs.vimPlugins; [
-          telescope-nvim
-          lualine-nvim
-          kanagawa-nvim
-          guess-indent-nvim
-          harpoon
-          vim-closer
-          undotree
-          vim-abolish
-          vim-surround
-          markview-nvim
-          # lsp --------
-          lsp-zero-nvim
-          nvim-lspconfig
-          nvim-cmp
-          cmp-nvim-lsp
-          luasnip
-          mason-nvim
-          mason-lspconfig-nvim
-          # -----------
           (nvim-treesitter.withPlugins (p: [
             p.tree-sitter-c
             p.tree-sitter-cpp
             p.tree-sitter-glsl
-            # p.tree-sitter-slang
             p.tree-sitter-nix
             p.tree-sitter-bash
             p.tree-sitter-lua
@@ -73,14 +55,13 @@
         ];
       };
     };
-    home.file = {
-      "${config.xdg.configHome}/nvim" = {
-        source = builtins.path {
-          path = ../../dotfiles/nvim;
-          name = "nvim";
-        };
-        recursive = true;
+
+    home.file."${config.xdg.configHome}/nvim" = {
+      source = builtins.path {
+        path = ../../dotfiles/nvim;
+        name = "nvim";
       };
+      recursive = true;
     };
   };
 }

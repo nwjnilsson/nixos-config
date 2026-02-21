@@ -18,5 +18,8 @@
         };
       };
     };
+    home.packages = with pkgs; [
+      mistral-vibe
+    ];
   };
 }
