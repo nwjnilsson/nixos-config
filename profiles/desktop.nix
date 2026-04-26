@@ -20,5 +20,6 @@
     spotify
     gimp-with-plugins
     inkscape-with-extensions
+    obs-studio
   ];
 }

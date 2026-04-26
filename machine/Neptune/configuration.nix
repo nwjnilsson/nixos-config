@@ -24,7 +24,6 @@
   # boot.loader.grub.device = "/dev/sdb";
   # boot.loader.grub.useOSProber = true;
 
-
   networking.hostName = "Neptune";
   # Uncomment to enable prettyfication of windows (more GPU intense,
   # not for things like Raspberry Pi)
@@ -42,6 +41,6 @@
     powerManagement.finegrained = false;
     open = false;
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
   };
 }

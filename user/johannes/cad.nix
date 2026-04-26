@@ -19,6 +19,7 @@
       freecad
       librecad
       prusa-slicer
+      kicad
     ];
   };
 }

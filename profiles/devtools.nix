@@ -15,5 +15,8 @@
     saleae-logic-2
     gdb
     gdbgui
+    clang-tools
+    perf
+    perl # for flamegraphs
   ];
 }
